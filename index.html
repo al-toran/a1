@@ -61,7 +61,8 @@
     </style>
 </head>
 <body>
-
+    <button onclick="playMusic()">PLAY</button>
+    <button onclick="stopMusic()" style="background-color: #535353; margin-left: 10px;">STOP</button>
     <div class="player-card">
         <div class="album-art">🎵</div>
         <h1>My First Player</h1>
@@ -103,6 +104,14 @@
             userInput.focus();
         }
     }
+    function stopMusic() {
+    audio.pause();            // 재생 일시 정지
+    audio.currentTime = 0;    // 재생 위치를 처음으로 (네트워크 세션 초기화 느낌!)
+    
+    const status = document.getElementById('status');
+    status.innerText = "재생 중단됨";
+    status.style.color = "#b3b3b3";
+}
 </script>
     </script>
 </body>
