@@ -73,41 +73,37 @@
     </div>
 
     <script>
-        function playMusic() {
-            const song = document.getElementById('userInput').value;
-            if(song) {
-                alert("♬ '" + song + "'을(를) 재생할 준비가 되었습니다! (진짜 재생은 다음 단계에서!)");
-            } else {
-                alert("노래 제목을 입력해주세요!");
-            }
-        }
-        // 이 오디오 객체가 음악을 담당합니다
-        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+  <script>
+    // 1. 오디오 객체 생성 (비교적 안정적인 샘플 주소로 교체)
+    const audio = new Audio('https://codesandbox.io/api/v1/sandboxes/sy1om/assets/sample.mp3');
 
-        function playMusic() {
-        const songInput = document.getElementById('userInput');
-        const song = songInput.value;
+    function playMusic() {
+        const userInput = document.getElementById('userInput');
         const status = document.getElementById('status');
+        const songName = userInput.value;
 
-        if(song) {
-            // [중요] 사파리 통과 핵심: 클릭 이벤트 안에서 '직접' 실행
-            // alert() 같은 팝업창은 브라우저가 흐름을 끊으므로 과감히 삭제했습니다.
+        if (songName) {
+            console.log("재생 시도 중: " + songName); // 로그 확인용
+            
+            // 2. 재생 실행
             audio.play()
                 .then(() => {
-                    status.innerText = "♬ 재생 중: " + song;
+                    console.log("재생 성공!");
+                    status.innerText = "♬ 현재 재생 중: " + songName;
                     status.style.color = "#1db954";
                 })
                 .catch(error => {
-                    // 사파리 보안 정책으로 막혔을 경우 로그 확인
-                    console.log("재생 오류:", error);
-                    status.innerText = "재생 버튼을 다시 한번 눌러주세요.";
+                    console.error("재생 실패 원인:", error);
+                    status.innerText = "오디오 로딩 실패. 다시 시도해 주세요.";
+                    status.style.color = "orange";
                 });
         } else {
             status.innerText = "노래 제목을 먼저 입력하세요!";
             status.style.color = "red";
-            songInput.focus();
+            userInput.focus();
         }
     }
+</script>
     </script>
 </body>
 </html>
