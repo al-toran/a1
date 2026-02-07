@@ -1,3 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Mini Player</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #1db954 0%, #191414 100%);
+            color: white;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .player-card {
+            background-color: #282828;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 300px;
+        }
+        .album-art {
+            width: 200px;
+            height: 200px;
+            background-color: #535353;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        h1 { font-size: 24px; margin-bottom: 5px; }
+        p { color: #b3b3b3; font-size: 14px; margin-bottom: 25px; }
+        input {
+            width: 80%;
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            margin-bottom: 15px;
+            outline: none;
+            text-align: center;
+        }
+        button {
+            background-color: #1db954;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover { transform: scale(1.05); background-color: #1ed760; }
+    </style>
+</head>
+<body>
+
+    <div class="player-card">
+        <div class="album-art">🎵</div>
+        <h1>My First Player</h1>
+        <p id="status">Now Playing: Coding with AI</p>
+        
+        <input type="text" id="userInput" placeholder="듣고 싶은 노래 제목은?">
+        <br>
+        <button onclick="playMusic()">PLAY</button>
+    </div>
+
+    <script>
 <script>
     // 1. 오디오 객체를 전역(Global)에 미리 선언 (장비 초기화 단계)
     const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
@@ -28,3 +103,6 @@
         }
     }
 </script>
+    </script>
+</body>
+</html>
