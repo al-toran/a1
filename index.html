@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: #121212; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
+    <h1>Hello, My Mac Mini!</h1>
+    <p>엄마 몰래 만드는 내 첫 번째 사이트</p>
+    
+    <input type="text" id="myInput" placeholder="숫자를 입력하세요..." style="padding: 10px; border-radius: 5px; border: none; color: black;">
+    
+    <button onclick="sayHello()" style="margin-top: 10px; padding: 10px 20px; background-color: #1DB954; color: white; border: none; border-radius: 20px; cursor: pointer;">클릭!</button>
+
+    <script>
+        // 버튼을 눌렀을 때 실행될 마법 주문(자바스크립트)
+        function sayHello() {
+            const val = document.getElementById('myInput').value;
+            if(val === "") {
+                alert("숫자나 글자를 입력해주세요!");
+            } else {
+                alert("입력하신 내용은 '" + val + "' 입니다! 작동 성공!");
+            }
+        }
+    </script>
+</body>
+</html>
